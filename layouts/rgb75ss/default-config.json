@@ -27,11 +27,11 @@
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "RESET",
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "RESET",
             "fields": []
           },
           {
@@ -1141,7 +1141,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_DEL",
+            "id": "KC_GRV",
             "fields": []
           },
           {
@@ -1227,11 +1227,11 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_PGUP",
+            "id": "KC_BSPC",
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "KC_DEL",
             "fields": []
           },
           {
@@ -1403,11 +1403,11 @@
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "BL_TOGG",
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "KC_BTN1",
             "fields": []
           },
           {
@@ -1493,7 +1493,7 @@
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "KC_BTN3",
             "fields": []
           },
           {
@@ -1579,7 +1579,7 @@
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "KC_BTN2",
             "fields": []
           },
           {
@@ -2431,7 +2431,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_BSPC",
+            "id": "KC_BSLS",
             "fields": []
           },
           {
@@ -2517,7 +2517,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_PGDN",
+            "id": "KC_ENT",
             "fields": []
           },
           {
@@ -2693,11 +2693,11 @@
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "BL_INC",
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "KC_WH_U",
             "fields": []
           },
           {
@@ -2779,11 +2779,11 @@
             "fields": []
           },
           {
-            "id": "RGB_TOG",
+            "id": "RGB_MOD",
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "KC_MS_U",
             "fields": []
           },
           {
@@ -2865,11 +2865,11 @@
             "fields": []
           },
           {
-            "id": "RGB_MOD",
+            "id": "RGB_HUI",
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "KC_WH_D",
             "fields": []
           },
           {
@@ -2951,7 +2951,7 @@
             "fields": []
           },
           {
-            "id": "RGB_HUI",
+            "id": "RGB_SAI",
             "fields": []
           },
           {
@@ -3037,7 +3037,7 @@
             "fields": []
           },
           {
-            "id": "RGB_HUD",
+            "id": "RGB_VAI",
             "fields": []
           },
           {
@@ -3123,7 +3123,7 @@
             "fields": []
           },
           {
-            "id": "RGB_SAI",
+            "id": "KC_TRNS",
             "fields": []
           },
           {
@@ -3209,7 +3209,7 @@
             "fields": []
           },
           {
-            "id": "RGB_SAD",
+            "id": "KC_TRNS",
             "fields": []
           },
           {
@@ -3295,7 +3295,7 @@
             "fields": []
           },
           {
-            "id": "RGB_VAI",
+            "id": "KC_TRNS",
             "fields": []
           },
           {
@@ -3381,7 +3381,7 @@
             "fields": []
           },
           {
-            "id": "RGB_VAD",
+            "id": "KC_TRNS",
             "fields": []
           },
           {
@@ -3635,7 +3635,7 @@
         "col": 12,
         "keycodes": [
           {
-            "id": "KC_ENT",
+            "id": "KC_HOME",
             "fields": []
           },
           {
@@ -3721,8 +3721,10 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_ENT",
-            "fields": []
+            "id": "MO()",
+            "fields": [
+              1
+            ]
           },
           {
             "id": "KC_TRNS",
@@ -3807,7 +3809,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_HOME",
+            "id": "KC_PGUP",
             "fields": []
           },
           {
@@ -3983,11 +3985,11 @@
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "BL_DEC",
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "KC_MS_L",
             "fields": []
           },
           {
@@ -4069,11 +4071,11 @@
             "fields": []
           },
           {
-            "id": "BL_DEC",
+            "id": "RGB_TOG",
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "KC_MS_D",
             "fields": []
           },
           {
@@ -4155,11 +4157,11 @@
             "fields": []
           },
           {
-            "id": "BL_TOGG",
+            "id": "RGB_HUD",
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "KC_MS_R",
             "fields": []
           },
           {
@@ -4241,7 +4243,7 @@
             "fields": []
           },
           {
-            "id": "BL_INC",
+            "id": "RGB_SAD",
             "fields": []
           },
           {
@@ -4327,7 +4329,7 @@
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "RGB_VAD",
             "fields": []
           },
           {
@@ -4839,7 +4841,7 @@
         "col": 11,
         "keycodes": [
           {
-            "id": "KC_BSLS",
+            "id": "KC_RSFT",
             "fields": []
           },
           {
@@ -4925,7 +4927,7 @@
         "col": 12,
         "keycodes": [
           {
-            "id": "KC_RSFT",
+            "id": "KC_END",
             "fields": []
           },
           {
@@ -5097,7 +5099,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_END",
+            "id": "KC_PGDN",
             "fields": []
           },
           {
@@ -5441,16 +5443,20 @@
         "col": 3,
         "keycodes": [
           {
-            "id": "BL_TOGG",
+            "id": "KC_SPC",
             "fields": []
           },
           {
-            "id": "BL_TOGG",
-            "fields": []
+            "id": "TO()",
+            "fields": [
+              0
+            ]
           },
           {
-            "id": "KC_TRNS",
-            "fields": []
+            "id": "TO()",
+            "fields": [
+              0
+            ]
           },
           {
             "id": "KC_TRNS",
@@ -5527,11 +5533,11 @@
         "col": 4,
         "keycodes": [
           {
-            "id": "RGB_TOG",
+            "id": "KC_SPC",
             "fields": []
           },
           {
-            "id": "RGB_TOG",
+            "id": "KC_TRNS",
             "fields": []
           },
           {
@@ -5617,7 +5623,7 @@
             "fields": []
           },
           {
-            "id": "RESET",
+            "id": "KC_TRNS",
             "fields": []
           },
           {
@@ -5871,16 +5877,20 @@
         "col": 8,
         "keycodes": [
           {
-            "id": "KC_RALT",
+            "id": "KC_SPC",
             "fields": []
           },
           {
-            "id": "KC_TRNS",
-            "fields": []
+            "id": "TO()",
+            "fields": [
+              2
+            ]
           },
           {
-            "id": "KC_TRNS",
-            "fields": []
+            "id": "TO()",
+            "fields": [
+              0
+            ]
           },
           {
             "id": "KC_TRNS",
@@ -5957,7 +5967,7 @@
         "col": 9,
         "keycodes": [
           {
-            "id": "KC_RGUI",
+            "id": "KC_RALT",
             "fields": []
           },
           {
@@ -6043,10 +6053,8 @@
         "col": 10,
         "keycodes": [
           {
-            "id": "MO()",
-            "fields": [
-              1
-            ]
+            "id": "KC_APP",
+            "fields": []
           },
           {
             "id": "KC_TRNS",
@@ -6505,7 +6513,7 @@
     "quantum": "void matrix_init_user(void) {\n}\n\nvoid matrix_scan_user(void) {\n}\n\nbool process_record_user(uint16_t keycode, keyrecord_t *record) {\n\treturn true;\n}",
     "settings": {
       "diodeDirection": 0,
-      "name": "RGB75B",
+      "name": "RGB75_2020-12-30",
       "bootloaderSize": 2,
       "rgbNum": 16,
       "backlightLevels": 3
