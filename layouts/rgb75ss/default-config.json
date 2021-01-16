@@ -2431,7 +2431,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_BSLS",
+            "id": "KC_BSPC",
             "fields": []
           },
           {
@@ -6501,12 +6501,11 @@
       "led": "B7",
       "rgb": "F0"
     },
-    "macros": {
-    },
+    "macros": {},
     "quantum": "void matrix_init_user(void) {\n}\n\nvoid matrix_scan_user(void) {\n}\n\nbool process_record_user(uint16_t keycode, keyrecord_t *record) {\n\treturn true;\n}",
     "settings": {
       "diodeDirection": 0,
-      "name": "RGB75",
+      "name": "RGB75B",
       "bootloaderSize": 2,
       "rgbNum": 16,
       "backlightLevels": 3
