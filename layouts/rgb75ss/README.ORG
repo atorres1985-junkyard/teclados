@@ -1,0 +1,13 @@
+# -*- mode: org; coding: utf-8-unix; fill-column: 80 -*-
+
+Este diretório é dedicado aos arquivos de configuração do firmware do teclado
+mecânico RGB75SS da NPKC.
+
+O arquivo =rgb75ss-config.json= é usado como entrada no website
+[[http://kbfirmware.com/][KBFirmware]]. Entre outras coisas, este site permite
+editar este arquivo em uma interface gráfica, salvar o arquivo editado em
+formato JSON e também gerar arquivos para gravação (/flashing/) mediante a suite
+[[https://qmk.fm/][QMK]], bem como o código-fonte em C.
+
+A minha ideia é, no futuro, usar apenas o código-fonte e aposentar o site, a fim
+de trabalhar sem necessidade de conexão com a internet.
