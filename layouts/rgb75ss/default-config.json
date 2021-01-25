@@ -2517,7 +2517,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_ENT",
+            "id": "KC_HOME",
             "fields": []
           },
           {
@@ -3635,7 +3635,7 @@
         "col": 12,
         "keycodes": [
           {
-            "id": "KC_HOME",
+            "id": "KC_ENT",
             "fields": []
           },
           {
@@ -3721,10 +3721,8 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "MO()",
-            "fields": [
-              1
-            ]
+            "id": "KC_UP",
+            "fields": []
           },
           {
             "id": "KC_TRNS",
@@ -4927,7 +4925,7 @@
         "col": 12,
         "keycodes": [
           {
-            "id": "KC_END",
+            "id": "KC_LEFT",
             "fields": []
           },
           {
@@ -5013,7 +5011,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_UP",
+            "id": "KC_RGHT",
             "fields": []
           },
           {
@@ -5271,8 +5269,10 @@
         "col": 1,
         "keycodes": [
           {
-            "id": "KC_LGUI",
-            "fields": []
+            "id": "MO()",
+            "fields": [
+              1
+            ]
           },
           {
             "id": "KC_TRNS",
@@ -5357,7 +5357,7 @@
         "col": 2,
         "keycodes": [
           {
-            "id": "KC_LALT",
+            "id": "KC_LGUI",
             "fields": []
           },
           {
@@ -5443,20 +5443,16 @@
         "col": 3,
         "keycodes": [
           {
-            "id": "KC_SPC",
+            "id": "KC_LALT",
             "fields": []
           },
           {
-            "id": "TO()",
-            "fields": [
-              0
-            ]
+            "id": "KC_TRNS",
+            "fields": []
           },
           {
-            "id": "TO()",
-            "fields": [
-              0
-            ]
+            "id": "KC_TRNS",
+            "fields": []
           },
           {
             "id": "KC_TRNS",
@@ -5537,12 +5533,16 @@
             "fields": []
           },
           {
-            "id": "KC_TRNS",
-            "fields": []
+            "id": "TO()",
+            "fields": [
+              2
+            ]
           },
           {
-            "id": "KC_TRNS",
-            "fields": []
+            "id": "TO()",
+            "fields": [
+              0
+            ]
           },
           {
             "id": "KC_TRNS",
@@ -5883,7 +5883,7 @@
           {
             "id": "TO()",
             "fields": [
-              2
+              0
             ]
           },
           {
@@ -6139,7 +6139,7 @@
         "col": 11,
         "keycodes": [
           {
-            "id": "KC_RCTL",
+            "id": "KC_LGUI",
             "fields": []
           },
           {
@@ -6225,7 +6225,7 @@
         "col": 12,
         "keycodes": [
           {
-            "id": "KC_LEFT",
+            "id": "KC_RCTL",
             "fields": []
           },
           {
@@ -6397,7 +6397,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_RGHT",
+            "id": "KC_END",
             "fields": []
           },
           {
@@ -6513,7 +6513,7 @@
     "quantum": "void matrix_init_user(void) {\n}\n\nvoid matrix_scan_user(void) {\n}\n\nbool process_record_user(uint16_t keycode, keyrecord_t *record) {\n\treturn true;\n}",
     "settings": {
       "diodeDirection": 0,
-      "name": "RGB75_2020-12-30",
+      "name": "RGB75ss",
       "bootloaderSize": 2,
       "rgbNum": 16,
       "backlightLevels": 3
