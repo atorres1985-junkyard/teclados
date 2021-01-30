@@ -6053,7 +6053,7 @@
         "col": 10,
         "keycodes": [
           {
-            "id": "KC_APP",
+            "id": "KC_RGUI",
             "fields": []
           },
           {
@@ -6139,7 +6139,7 @@
         "col": 11,
         "keycodes": [
           {
-            "id": "KC_LGUI",
+            "id": "KC_APP",
             "fields": []
           },
           {
