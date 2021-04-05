@@ -1,4 +1,4 @@
-﻿{
+{
   "version": 1,
   "keyboard": {
     "keys": [
@@ -2431,7 +2431,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_BSLS",
+            "id": "KC_LEFT",
             "fields": []
           },
           {
@@ -4839,7 +4839,7 @@
         "col": 11,
         "keycodes": [
           {
-            "id": "KC_RSFT",
+            "id": "KC_BSLS",
             "fields": []
           },
           {
@@ -4925,7 +4925,7 @@
         "col": 12,
         "keycodes": [
           {
-            "id": "KC_LEFT",
+            "id": "KC_RSFT",
             "fields": []
           },
           {
@@ -5011,7 +5011,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_RGHT",
+            "id": "KC_DOWN",
             "fields": []
           },
           {
@@ -5269,10 +5269,8 @@
         "col": 1,
         "keycodes": [
           {
-            "id": "MO()",
-            "fields": [
-              1
-            ]
+            "id": "KC_LGUI",
+            "fields": []
           },
           {
             "id": "KC_TRNS",
@@ -5357,7 +5355,7 @@
         "col": 2,
         "keycodes": [
           {
-            "id": "KC_LGUI",
+            "id": "KC_LALT",
             "fields": []
           },
           {
@@ -5443,7 +5441,7 @@
         "col": 3,
         "keycodes": [
           {
-            "id": "KC_LALT",
+            "id": "KC_APP",
             "fields": []
           },
           {
@@ -5705,8 +5703,10 @@
         "col": 6,
         "keycodes": [
           {
-            "id": "KC_SPC",
-            "fields": []
+            "id": "MO()",
+            "fields": [
+              1
+            ]
           },
           {
             "id": "KC_TRNS",
@@ -5967,7 +5967,7 @@
         "col": 9,
         "keycodes": [
           {
-            "id": "KC_RALT",
+            "id": "KC_MENU",
             "fields": []
           },
           {
@@ -6053,7 +6053,7 @@
         "col": 10,
         "keycodes": [
           {
-            "id": "KC_RGUI",
+            "id": "KC_RALT",
             "fields": []
           },
           {
@@ -6139,7 +6139,7 @@
         "col": 11,
         "keycodes": [
           {
-            "id": "KC_APP",
+            "id": "KC_RGUI",
             "fields": []
           },
           {
@@ -6311,7 +6311,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_DOWN",
+            "id": "KC_RGHT",
             "fields": []
           },
           {
