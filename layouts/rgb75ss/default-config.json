@@ -2431,7 +2431,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_LEFT",
+            "id": "KC_HOME",
             "fields": []
           },
           {
@@ -2517,7 +2517,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_HOME",
+            "id": "KC_PGUP",
             "fields": []
           },
           {
@@ -3721,7 +3721,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_UP",
+            "id": "KC_END",
             "fields": []
           },
           {
@@ -3807,7 +3807,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_PGUP",
+            "id": "KC_PGDN",
             "fields": []
           },
           {
@@ -5011,7 +5011,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_DOWN",
+            "id": "KC_LEFT",
             "fields": []
           },
           {
@@ -5097,7 +5097,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_PGDN",
+            "id": "KC_UP",
             "fields": []
           },
           {
@@ -5441,8 +5441,10 @@
         "col": 3,
         "keycodes": [
           {
-            "id": "KC_APP",
-            "fields": []
+            "id": "MO()",
+            "fields": [
+              1
+            ]
           },
           {
             "id": "KC_TRNS",
@@ -5703,10 +5705,8 @@
         "col": 6,
         "keycodes": [
           {
-            "id": "MO()",
-            "fields": [
-              1
-            ]
+            "id": "KC_SPC",
+            "fields": []
           },
           {
             "id": "KC_TRNS",
@@ -6397,7 +6397,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_END",
+            "id": "KC_DOWN",
             "fields": []
           },
           {
