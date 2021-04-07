@@ -3,11 +3,22 @@
 Este diretório é dedicado aos arquivos de configuração do firmware do teclado
 mecânico RGB75SS da NPKC.
 
-O arquivo =rgb75ss-config.json= é usado como entrada no website
-[[http://kbfirmware.com/][KBFirmware]]. Entre outras coisas, este site permite
-editar este arquivo em uma interface gráfica, salvar o arquivo editado em
-formato JSON e também gerar arquivos para gravação (/flashing/) mediante a suite
-[[https://qmk.fm/][QMK]], bem como o código-fonte em C.
+- O diretório =pdf= contém os manuais do teclado, como fornecidos pelo
+  fabricante.
 
-A minha ideia é, no futuro, usar apenas o código-fonte e aposentar o site, a fim
-de trabalhar sem necessidade de conexão com a internet.
+- O arquivo =default-config.json= é usado como entrada no website
+  [[http://kbfirmware.com/][KBFirmware]]. Entre outras coisas, este site permite
+  editar este arquivo em uma interface gráfica, salvar o arquivo editado em
+  formato JSON e também gerar arquivos para gravação (/flashing/) mediante a
+  suite [[https://qmk.fm/][QMK]], bem como o código-fonte em C.
+
+- O arquivo =default-layout.json= é usado como entrada no website
+  [[http://www.keyboard-layout-editor.com/][keyboard-layout-editor]], uma
+  espécie de editor gráfico para o layout do teclado.
+
+  Para este teclado em especial, não há uma necessidade de haver este layout,
+  mas eu recriei este por questão de completude.
+
+No futuro, pretendo montar este esquema de forma totalmente offline. De fato,
+todas as ferramentas aqui usadas são de código aberto, não é impossível
+implementá-las em casa.
