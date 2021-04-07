@@ -1,0 +1,136 @@
+[
+  {
+    "backcolor": "#000000",
+    "name": "RGB75SS",
+    "notes": "RGB75\nOrtholinear\nHot Swap \nUSB Type-C\nATMEGA32U4\nQMK Programmable\nGateron Blue Switches\nNPKC RGB CP Store\nAliExpress",
+    "switchMount": "cherry",
+    "switchBrand": "gateron",
+    "switchType": "KS-3-Green",
+    "plate": true,
+    "pcb": true
+  },
+  [
+    {
+      "c": "#ff0000",
+      "a": 7
+    },
+    "ESC",
+    {
+      "c": "#cccccc",
+      "a": 5
+    },
+    "!\n1",
+    "@\n2",
+    "#\n3",
+    "$\n4",
+    "%\n5",
+    "^\n6",
+    "&\n7",
+    "*\n8",
+    "(\n9",
+    ")\n0",
+    "_\n-",
+    "+\n=",
+    "~\n`",
+    {
+      "a": 7
+    },
+    "BKSPC"
+  ],
+  [
+    "TAB",
+    "Q",
+    "W",
+    "E",
+    "R",
+    "T",
+    "Y",
+    "U",
+    "I",
+    "O",
+    "P",
+    {
+      "a": 5
+    },
+    "{\n[",
+    "}\n]",
+    {
+      "a": 7
+    },
+    "HOME",
+    "PGUP"
+  ],
+  [
+    "CAPS",
+    "A",
+    "S",
+    "D",
+    "F",
+    "G",
+    "H",
+    "J",
+    "K",
+    "L",
+    {
+      "a": 5
+    },
+    ":\n;",
+    "\"\n'",
+    {
+      "a": 7
+    },
+    "ENTER",
+    "END",
+    "PGDN"
+  ],
+  [
+    "SHIFT",
+    "Z",
+    "X",
+    "C",
+    "V",
+    "B",
+    "N",
+    "M",
+    {
+      "a": 5
+    },
+    "<\n,",
+    ">\n.",
+    "?\n/",
+    "|\n\\",
+    {
+      "a": 7
+    },
+    "SHIFT",
+    {
+      "c": "#ffaa00"
+    },
+    "LEFT",
+    "UP"
+  ],
+  [
+    {
+      "c": "#cccccc"
+    },
+    "CTRL",
+    "Win",
+    "Alt",
+    "Fn",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Menu",
+    "Alt",
+    "Win",
+    "Ctrl",
+    {
+      "c": "#ffaa00"
+    },
+    "RIGHT",
+    "DOWN"
+  ]
+]
+
