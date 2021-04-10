@@ -1,4 +1,4 @@
-{
+﻿{
   "version": 1,
   "keyboard": {
     "keys": [
@@ -23,11 +23,11 @@
         "col": 0,
         "keycodes": [
           {
-            "id": "KC_ESC",
+            "id": "KC_GRV",
             "fields": []
           },
           {
-            "id": "RESET",
+            "id": "KC_TRNS",
             "fields": []
           },
           {
@@ -1141,7 +1141,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_GRV",
+            "id": "KC_INS",
             "fields": []
           },
           {
@@ -2517,7 +2517,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_PGUP",
+            "id": "KC_LEFT",
             "fields": []
           },
           {
@@ -2603,11 +2603,11 @@
         "col": 0,
         "keycodes": [
           {
-            "id": "KC_CAPS",
+            "id": "KC_ESC",
             "fields": []
           },
           {
-            "id": "KC_TRNS",
+            "id": "RESET",
             "fields": []
           },
           {
@@ -3807,7 +3807,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_PGDN",
+            "id": "KC_RGHT",
             "fields": []
           },
           {
@@ -5011,7 +5011,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_LEFT",
+            "id": "KC_PGUP",
             "fields": []
           },
           {
@@ -6311,7 +6311,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_RGHT",
+            "id": "KC_PGDN",
             "fields": []
           },
           {
