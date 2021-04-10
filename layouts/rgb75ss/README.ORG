@@ -19,6 +19,8 @@ mecânico RGB75SS da NPKC.
   Para este teclado em especial, não há uma necessidade de haver este layout,
   mas eu recriei este por questão de completude.
 
+- Além destes arquivos, há os correspondentes para o modelo Colemak-DHM.
+
 No futuro, pretendo montar este esquema de forma totalmente offline. De fato,
 todas as ferramentas aqui usadas são de código aberto, não é impossível
 implementá-las em casa.
