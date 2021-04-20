@@ -31,7 +31,7 @@
             "fields": []
           },
           {
-            "id": "RESET",
+            "id": "KC_TRNS",
             "fields": []
           },
           {
@@ -3721,7 +3721,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_END",
+            "id": "KC_PGUP",
             "fields": []
           },
           {
@@ -3807,7 +3807,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_RGHT",
+            "id": "KC_UP",
             "fields": []
           },
           {
@@ -5011,7 +5011,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_PGUP",
+            "id": "KC_PGDN",
             "fields": []
           },
           {
@@ -5097,7 +5097,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_UP",
+            "id": "KC_DOWN",
             "fields": []
           },
           {
@@ -5967,7 +5967,7 @@
         "col": 9,
         "keycodes": [
           {
-            "id": "KC_MENU",
+            "id": "KC_RALT",
             "fields": []
           },
           {
@@ -6053,7 +6053,7 @@
         "col": 10,
         "keycodes": [
           {
-            "id": "KC_RALT",
+            "id": "KC_RGUI",
             "fields": []
           },
           {
@@ -6139,7 +6139,7 @@
         "col": 11,
         "keycodes": [
           {
-            "id": "KC_RGUI",
+            "id": "KC_APP",
             "fields": []
           },
           {
@@ -6311,7 +6311,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_PGDN",
+            "id": "KC_END",
             "fields": []
           },
           {
@@ -6397,7 +6397,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_DOWN",
+            "id": "KC_RGHT",
             "fields": []
           },
           {

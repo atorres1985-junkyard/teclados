@@ -84,11 +84,11 @@
       "a": 7
     },
     "ENTER",
-    "END",
+    "PGUP",
     {
       "c": "#ffaa00"
     },
-    "RIGHT"
+    "UP"
   ],
   [
     {
@@ -113,11 +113,11 @@
       "a": 7
     },
     "SHIFT",
-    "PGUP",
+    "PGDN",
     {
       "c": "#ffaa00"
     },
-    "UP"
+    "DOWN"
   ],
   [
     {
@@ -132,14 +132,14 @@
     "",
     "",
     "",
-    "Menu",
     "Alt",
     "Win",
+    "Menu",
     "Ctrl",
-    "PGDN",
+    "END",
     {
       "c": "#ffaa00"
     },
-    "DOWN"
+    "RIGHT"
   ]
 ]
