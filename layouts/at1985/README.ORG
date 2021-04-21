@@ -1,0 +1,97 @@
+# -*- mode: org; coding: utf-8-unix; fill-column: 80 -*-
+
+#+title: AT1985-OLKB: Meu Teclado Mecânico Feito Em Casa!
+
+* Intro
+
+  Faz  uns bons  cinco anos  que eu  uso teclado  mecânico, e  mais recentemente
+  comprei um teclado orto-linear.
+
+  Explicando rapidamente: um teclado comum  têm teclas de diferentes dimensões e
+  com    posicionamentos    bastante    peculiares.   Eis    um    exemplo:    o
+  [[http://www.keyboard-layout-editor.com/#/samples/gb-retro-dsa][GB Retro DSA]]!
+
+  [[./gb-retro-dsa.png]]
+
+  Já em um teclado orto-linear, as teclas geralmente têm o mesmo tamanho e estão
+  posicionadas em forma de  reticulado, sem aquele característico desalinhamento
+  dos teclados  comuns. Por isso  o nome  orto-linear: as linhas  são ortogonais
+  (uma  palavra   chique  para  "perpendiculares")  De   fato,  alguns  teclados
+  orto-lineares como o Plank  têm uma tecla de espaço com o  dobro do tamanho de
+  uma tecla comum  de letras, ao passo  que teclados clássicos têm  uma tecla de
+  espaço com cinco  vezes o tamanho de  uma tecla comum. Mas  mesmo este teclado
+  Plank mantém o arranjo em reticulado:
+
+  [[./planck.png]]
+
+  Pois  bem,  após  ver   alguns  interessantes  tutoriais,  estou  absurdamente
+  interessado em construir meu próprio teclado mecânico!
+
+* Nome e Projeto
+
+  O /AT1985/ é uma  referência a mim mesmo. Já o  /OLKB/ significa /Ortho Linear
+  KeyBoard/.
+
+  A ideia cristalizada  atualmente é um teclado de 6x16  teclas, onde a primeira
+  linha (Esc+F1-F12)  fica um pouco destacada  das outras, assim como  o teclado
+  numérico também fica destacado.
+
+  Eis uma imagem do que espero ao final:
+
+  [[./default-layout.png]]
+
+  As teclas ainda em  branco? Isso é um diferencial de design -  ainda não sei o
+  que  fazer com  elas,  haha! Por  alguns motivos  que  podem possivelmente  me
+  atrapalhar no futuro, acredito  que este formato é o mais  indicado. A ideia é
+  que números pares facilitam certas configurações para o emaranhado de fios.
+
+* Materiais
+
+  - Interruptores (/switches/) da marca Kailh (200)
+  - Para cada interruptor:
+    - optatoriamente, comprar as teclas (/keycaps/)
+    - Diodos 1N4148
+  - Microcontrolador
+    - Há algumas boas opções neste terreno.
+  - Placa de alumínio
+  - Case de acrílico
+  - Espaçadores
+  - Ferro de solda
+
+  Provavelmente a  quantidade de teclas é  exagerada, dado que um  teclado comum
+  não tem mais de  110 teclas. Mas ter interruptores de  reserva nunca é demais,
+  além do descontinho de atacado que isso proporciona.
+
+* Referências
+
+  - [[https://geekhack.org/index.php?topic=87689][Geekhack Tutorial]]
+
+    Aqui estão as diretrizes, pelas mãos de alguém que já aprontou um pouco
+    neste terreno.
+
+    Este tutorial também tem uma [[http://imgur.com/a/qcgdF][versão no IMGUR]]!
+
+  - [[http://www.keyboard-layout-editor.com/][Keyboard Layout Editor]]
+
+    É  onde   eu  defino  o  layout.   Serve  como  entrada  para   os  próximos
+    programas/sites.
+
+  - [[http://kle-render.herokuapp.com/][KLE-Render]]
+
+    Gera uma imagem mais convidativa para o teclado! :)
+
+  - [[http://builder.swillkb.com/][Plate and Case Builder]]
+
+    É  onde eu  gero o  arquivo para  o desenho  da placa  onde vão  apoiadas as
+    teclas.
+
+  - [[http://kbfirmware.com/][Keyboard Firmware Builder]]
+
+    É onde eu gero o firmware para o teclado.\\
+    Preciso  tomar  um  certo  cuidado, pois  este  site/projeto  foi  declarado
+    em-vias-de-abandono pelo dono original.
+
+  - [[https://deskthority.net/viewtopic.php?t=22702][My first handwired keyboard
+    ever]]
+
+    Outro tutorialzão de teclado feito à mão.
