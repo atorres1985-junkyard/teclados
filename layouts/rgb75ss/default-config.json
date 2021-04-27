@@ -2517,7 +2517,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_LEFT",
+            "id": "KC_END",
             "fields": []
           },
           {
@@ -6311,7 +6311,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_END",
+            "id": "KC_LEFT",
             "fields": []
           },
           {
