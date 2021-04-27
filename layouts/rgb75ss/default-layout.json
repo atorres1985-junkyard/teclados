@@ -53,10 +53,7 @@
       "a": 7
     },
     "HOME",
-    {
-      "c": "#ffaa00"
-    },
-    "LEFT"
+    "END"
   ],
   [
     {
@@ -136,10 +133,10 @@
     "Win",
     "Menu",
     "Ctrl",
-    "END",
     {
       "c": "#ffaa00"
     },
+    "LEFT",
     "RIGHT"
   ]
 ]
