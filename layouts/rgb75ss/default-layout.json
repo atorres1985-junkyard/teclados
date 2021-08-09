@@ -81,16 +81,10 @@
       "a": 7
     },
     "ENTER",
-    "PGUP",
-    {
-      "c": "#ffaa00"
-    },
-    "UP"
+    "Fn",
+    "PGUP"
   ],
   [
-    {
-      "c": "#cccccc"
-    },
     "SHIFT",
     "Z",
     "X",
@@ -110,20 +104,19 @@
       "a": 7
     },
     "SHIFT",
-    "PGDN",
     {
       "c": "#ffaa00"
     },
-    "DOWN"
-  ],
-  [
+    "UP",
     {
       "c": "#cccccc"
     },
+    "PGDN"
+  ],
+  [
     "CTRL",
     "Win",
     "Alt",
-    "Fn",
     "",
     "",
     "",
@@ -137,6 +130,7 @@
       "c": "#ffaa00"
     },
     "LEFT",
+    "DOWN",
     "RIGHT"
   ]
 ]

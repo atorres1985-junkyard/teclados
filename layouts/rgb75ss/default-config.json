@@ -1,4 +1,4 @@
-﻿{
+{
   "version": 1,
   "keyboard": {
     "keys": [
@@ -3721,8 +3721,10 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_PGUP",
-            "fields": []
+            "id": "MO()",
+            "fields": [
+              1
+            ]
           },
           {
             "id": "KC_TRNS",
@@ -3807,7 +3809,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_UP",
+            "id": "KC_PGUP",
             "fields": []
           },
           {
@@ -5011,7 +5013,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_PGDN",
+            "id": "KC_UP",
             "fields": []
           },
           {
@@ -5097,7 +5099,7 @@
         "col": 14,
         "keycodes": [
           {
-            "id": "KC_DOWN",
+            "id": "KC_PGDN",
             "fields": []
           },
           {
@@ -5441,14 +5443,14 @@
         "col": 3,
         "keycodes": [
           {
-            "id": "MO()",
-            "fields": [
-              1
-            ]
+            "id": "KC_SPC",
+            "fields": []
           },
           {
-            "id": "KC_TRNS",
-            "fields": []
+            "id": "TO()",
+            "fields": [
+              2
+            ]
           },
           {
             "id": "KC_TRNS",
@@ -5533,10 +5535,8 @@
             "fields": []
           },
           {
-            "id": "TO()",
-            "fields": [
-              2
-            ]
+            "id": "KC_TRNS",
+            "fields": []
           },
           {
             "id": "TO()",
@@ -5795,8 +5795,10 @@
             "fields": []
           },
           {
-            "id": "KC_TRNS",
-            "fields": []
+            "id": "TO()",
+            "fields": [
+              0
+            ]
           },
           {
             "id": "KC_TRNS",
@@ -5877,14 +5879,12 @@
         "col": 8,
         "keycodes": [
           {
-            "id": "KC_SPC",
+            "id": "KC_RALT",
             "fields": []
           },
           {
-            "id": "TO()",
-            "fields": [
-              0
-            ]
+            "id": "KC_TRNS",
+            "fields": []
           },
           {
             "id": "TO()",
@@ -5967,7 +5967,7 @@
         "col": 9,
         "keycodes": [
           {
-            "id": "KC_RALT",
+            "id": "KC_RGUI",
             "fields": []
           },
           {
@@ -6053,7 +6053,7 @@
         "col": 10,
         "keycodes": [
           {
-            "id": "KC_RGUI",
+            "id": "KC_APP",
             "fields": []
           },
           {
@@ -6139,7 +6139,7 @@
         "col": 11,
         "keycodes": [
           {
-            "id": "KC_APP",
+            "id": "KC_RCTL",
             "fields": []
           },
           {
@@ -6225,7 +6225,7 @@
         "col": 12,
         "keycodes": [
           {
-            "id": "KC_RCTL",
+            "id": "KC_LEFT",
             "fields": []
           },
           {
@@ -6311,7 +6311,7 @@
         "col": 13,
         "keycodes": [
           {
-            "id": "KC_LEFT",
+            "id": "KC_DOWN",
             "fields": []
           },
           {
