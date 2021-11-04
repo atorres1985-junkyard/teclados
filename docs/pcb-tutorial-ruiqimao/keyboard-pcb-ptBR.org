@@ -1,0 +1,641 @@
+# -*- mode: org; coding: utf-8-unix; fill-column: 75 -*-
+
+#+title: Guia de PCB para Teclado
+#+options: toc:nil
+
+#+toc: headlines 2
+
+Então  você quer  fazer  uma  placa de  circuito  impresso  (/PCB/ para  os
+íntimos) para  teclado? Não sabe  onde ou como  começar? Bem, você  veio ao
+lugar certo!
+
+* Configuração
+
+  Vamos precisar do [[http://kicad-pcb.org/][KiCad]]. Baixe, instale e você
+  estará pronto para prosseguir!
+
+  Ou quase.
+
+  Precisaremos de algumas bibliotecas também. Eu gosto de usar a
+[[https://github.com/tmk/kicad_lib_tmk][biblioteca de componentes
+keyboard_parts do Hasu]] e a
+[[https://github.com/tmk/keyboard_parts.pretty][footprint
+library]]. /u/techieee também tem uma boa biblioteca de
+[[https://github.com/egladman/keebs.pretty][switch footprint]].
+
+  Baixe tudo isso e você deve estar pronto.
+
+  Certifique-se que você também tenha as bibliotecas oficiais do
+  KiCad. Elas devem estar inclusas na sua instalação KiCad.
+
+* Esquemáticos
+
+  Inicie o KiCad e crie um projeto novo (File > New Project > New Project).
+  Nomeie o projeto como desejar. Para os propósitos deste guia, chamarei
+  "exemplo". Bastante criativo, eu sei.
+
+  Começaremos projetando nossos esquemáticos. Clique duplo em seu arquivo
+  =.sch= e você será recebido por uma folha esquemática vazia:
+
+  #+caption: tela de esquemático em branco
+  #+attr_html: :width 100px
+  [[./pics/001.png]]
+
+  Vamos adicionar nossa biblioteca de componentes.  No topo da janela,
+  clique em Preferences > Component Libraries.  Então, clique em Add e
+  encontre o arquivo =keyboard_parts.lib= da biblioteca do Hasu. Role até o
+  fim da lista de componentes da biblioteca e encontre a qye você acabou de
+  adicionar. Precisamos movê-la para o topo da lista, de forma que nossa
+  lista deve se parecer com isso:
+
+  #+caption: biblioteca de componentes
+  [[./pics/002.png]]
+
+  Clique "OK" e estamos prontos para prosseguir. Estamos para adentrar em
+  algo bem técnico, então prepare-se.
+
+  Para começar, eis uma lista básica de comandos:
+
+  #+begin_example
+  m: selecionar o componente e movê-lo
+  g: arrastar o componente e movê-lo mantendo os fios a ele conectados
+  c: copiar o componente
+  e: editar o componente
+  r: rotacionar o componente
+  y: espelhar o componente
+  del: apagar o componente
+  esc: abortar!
+  #+end_example
+
+  Agora posicione o componente (Place > Component). Seu cursor deve se
+  tornar um lápis agora. Clique em qualquer lugar da folha. Procure por
+  =ATMEGA32U4= na biblioteca keyboard_parts:
+
+  #+caption: atmega32u4
+  [[./pics/003.png]]
+
+  Clique OK, então clique novamente na folha de esquemático para posicionar
+  o componente. Este será nosso controlador. Edite o componente e mude a
+  referência de "U?" para "U1". Este é o nome único que usaremos para nos
+  referirmos a este componente em particular.
+
+  Na próxima parte precisamos posicionar o cristal, que é a parte que fala
+  ao controlador quão rápido ele irá executar. Use o componente
+  =Device:Crystal_GND24=. Mude a referência para Y1. *Não use o componente
+  =XTAL_GND= da biblioteca `tmk_keyboard_parts` porque ele resulta em
+  pinos errados indo ao microcontrolador e necessitando soldar o cristal
+  em 45 graus fora de lugar*.
+
+  Agora vamos adicionar dois capacitores de carga (=C_SMALL=). Estes
+  capacitores são necessários para fazer o cristal ressoar. Existe uma
+  fórmula para determinar a capacitância necessária desses capacitores, mas
+  por enquanto vamos usar uma capacitância de carga de 18pF, de forma que
+  estes dois capacitores de desacoplamento terão 22pF. Nomeie-os C1 e C2, e
+  mude seus valores para 22p. Adicione também um símbolo GND para
+  representar o terra, e conecte tudo usando a ferramenta de fio (linha
+  verde à direita) assim:
+
+  #+caption: cristal
+  [[./pics/004.png]]
+
+  Agora vamos adicionar capacitores de desacoplamento para o VCC, nossa
+  fonte de energia. Geralmente precisamos de um capacitor de 0.1uF para
+  cada VCC/AVCC no controlador e um 4.7uF para UVcc. Em nosso caso,
+  precisamos de quatro capacitores de 0.1uF e um de 4.7uF, assim:
+
+  #+caption: capacitores
+  [[./pics/005.png]]
+
+  Vamos inserir um interuptor de reinício (/switch reset/). Para isto,
+  precisamos de um switch (=SW_PUSH=) de nome SW1 e de um resistor de 10k
+  para levantamento (=R=). Se você quer saber por que precisamos de um
+  resistor de levantamento e o que significa "resistor de levantamento"
+  para começo de conversa, este artigo sobre
+  [[https://learn.sparkfun.com/tutorials/pull-up-resistors][pull-up
+  resistors]] da Sparkfun dá uma boa explicação. Mas por ora eis aqui como
+  ele deve ser inserto:
+
+  #+caption: reset
+  [[./pics/006.png]]
+
+  Agora vamos colocar um resistor de 10k nomeado R2 no pino HWB/PE2 e
+  conectá-lo ao terra. Precisamos de um resistor aqui porque ele diz ao
+  microcontrolador que quando apertarmos o botão de reset nós desejamos
+  entrar no /bootloader/ a fim de gravar um novo layout de teclado nele!
+
+  #+caption: hwb
+  [[./pics/007.png]]
+
+  A seguir, vamos inserir a porta USB. Adicione o componente
+  =USB_mini_micro_B= da biblioteca keyboard_parts e chame-o J1. Conecte o
+  VUSB ao VCC e o Uvcc, e coloque dois resistores R3 e R4 de 22Ω cada entre
+  as conexões. Conecte GND e SHIELD juntos e conecte-os ao terra. E por fim
+  coloque um capacitor C8 de 1uF entre Ucap e GND:
+
+  #+caption: usb
+  [[./pics/008.png]]
+
+  Vamos conectar todas as conexões VCC juntas, bem como todas as
+  GND. Normalmente, você colocaria um capacitor entre AVCC e VCC se você
+  estivesse usando o ADC (conversor analógico-digital) integrado, mas não
+  vamos nos preocupar com isso em um teclado, portanto conecte-os
+  diretamente. Eis como tudo fica neste ponto (o circuito do cristal está
+  desatualizado e este símbolo foi então corrigido):
+
+  #+caption: visão global
+  [[./pics/009.png]]
+
+  Agora vamos montar nossa matriz de teclas. Para os propósitos deste guia,
+  vamos simplesmente fazer uma matriz de switches 2x2. Vamos precisar usar
+  os componentes =KEYSW= e =D= para nossos componentes de switch e diodo,
+  respectivamente. Conecte-os como você conectaria se fosse fazer um
+  teclado artesanal, e não esqueça de nomeá-los. K1 deve corresponder a D1,
+  K2 a D2 e assim por diante:
+
+  #+caption: matriz
+  [[./pics/010.png]]
+
+  Agora precisamos conectar esta matriz ao controlador. Utilizaremos
+  rótulos para facilitar (A com uma linha verde por baixo à direita). Para
+  nossa placa de exemplo, vamos usar PF0 para a linha 0 (row0), PF1 para
+  linha 1 (row1), PF4 para a coluna 0 (col1), e PF5 para a coluna 1:
+
+  #+caption: matriz controladora
+  [[./pics/011.png]]
+
+  Por fim, vamos rotular os pinos não usados como não-conectados. Use a
+  ferramenta de sem-conexão (X azul à direta) e clicar em todos os pinos
+  não conectados no controlador e o pino ID na porta USB. Esta é também uma
+  boa oportunidade de certificar-se de não ter esquecido de nenhum dos
+  pinos VCC ou GND antes! Nosso esquemático final deve se parecer com isso
+  (mais uma vez, o circuito do cristal está incorreto e este símbolo foi
+  então atualizado):
+
+  #+caption: esquemático final
+  [[./pics/012.png]]
+
+* Associando Componentes e Trilhas
+
+  Temos que informar ao KiCad o que cada um destes componentes significa.
+  Clique no ícone para CvPcb no topo:
+
+  #+caption: ícone cvpcb
+  [[./pics/013.png]]
+
+  Se esta é sua primeira vez executando o CvPcb, vamos precisar adicionar
+  as bibliotecas de trilha (/footprint/) que baixamos anteriormente. Clique
+  Preferences > Footprint Libraries, e na janela que aparecer, use o botão
+  "Append with Wizard" para adicionar as pastas "keebs.pretty" e
+  "keyboard_parts.pretty" que já baixamos antes. Você também pode ter que
+  adicionar manualmente as bibliotecas embutidas do KiCad. Sua lista de
+  bibliotecas deve ser semelhante a esta agora:
+
+  #+caption: footprint libraries
+  [[./pics/014.png]]
+
+  Vamos assumir que todos os nossos capacitores e resistores são 0805
+  tamanho imperial [fn:: Isto quer dizer que os capacitores medem
+  0.8inx0.5in em medição imperial, o que para nós métricos seria algo como
+  20,32mmx12,70mm;]. Nosso Atmega32U4 será um pacote TQFN [fn::Thin Quad
+  Flat No Leads; é um formato de empacotamento de microchip, onde ele
+  assume a forma quadrada, semelhante ao Quad Flat Package. A diferença
+  está em que não há "perninhas" que se projetam para fora do pacote no
+  caso do TQFN, e os contatos situam-se na parte inferior do pacote.]. Nós
+  vamos usar o bastante útil formato híbrido de trilhas para montagem
+  perfurada e superficial da biblioteca do Hasu para nossos diodos. Os
+  switches serão as trilhas de 1u do /u/techieee. O cristal será um da
+  série FA-238. O botão de reset será um da série TL3342, e a porta USB
+  mini B será um conector Hirose 5S8.Para cada componente, passe pela lista
+  de trilhas e clique duplo em um para associá-lo com o componente
+  atualmente selecionado. Eis como as associações devem se parecer ao fim:
+
+  #+caption: associações
+  [[./pics/015.png]]
+
+  Salve as associações e feche a janela.
+
+* Gerando a Listagem de Rede
+
+  Agora precisamos gerar a listagem de rede (/netlist/), que é
+  essencialmente uma lista de conexões no nosso esquemático. Clique no
+  botão de lista de rede:
+
+  #+caption: Botão de listagem de rede
+  [[./pics/016.png]]
+
+  No diálogo que se abrir, clique "Generate". Use o nome padrão no diálogo
+  de salvamento. Se tudo foi assentado e nomeado apropriadamente, KiCad não
+  deve te perguntar sobre anotações. Se for o caso, clique "Cancel" e
+  re-confira todas as suas referências, e daí então tente outra vez.
+
+* PCB
+
+  Agora  vamos  criar nossa  PCB!  Salve  e feche  a  janela  do editor  do
+  esquemático.   Daí,   volte  ao   seu   projeto   e  abra   seu   arquivo
+  ".kicad_pcb". Você será recebido por um editor de PCB em branco:
+
+  #+caption: editor pcb em branco
+  [[./pics/017.png]]
+
+  A  primeira coisa  que  iremos fazer  é re-conferir  se  todas as  nossas
+  trilhas ainda  estão no  lugar. Vá em  Preferences >  Footprint Libraries
+  Manager  e certifique-se  que todas  as bibliotecas  de trilhas  que você
+  importou anteriormente ainda estão aí. Se não estiverem, então importe-as
+  novamente.
+
+  A  seguir,  vamos  configurar  nossa  rede.  Clique  Dimensions  >  Grid,
+  selecione Units para Inches, Size X e Size Y ambos para 0.09375, assim:
+
+  #+caption: dimensions
+  [[./pics/018.png]]
+
+  Então,  precisamos  dizer   ao  editor  de  PCB  para   usar  nossa  rede
+  definida. Mude a opção ao topo para "User Grid".
+
+  A maneira mais fácil  de colocar todas as trilhas na placa  é ler a lista
+  de rede que geramos antes. Clique no  botão de listagem de rede, que deve
+  ter a  mesma aparência de antes,  e clique em "Read  Current Netlist". Um
+  monte de  mensagens deve surgir, e  o diálogo deve ser  algo semelhante a
+  isto:
+
+  #+caption: ler listagem de rede
+  [[./pics/019.png]]
+
+  Agora clique  "Close". Você notará agora  um monte de trilhas  no meio da
+  tela, todas empilhadas uma na outra:
+
+  #+caption: pilha de trilhas
+  [[./pics/020.png]]
+
+  Antes que as separemos, vamos esconder  o ninho de fios [fn::no original,
+  ratsnest],  que essencialmente  são as  linhas que  detalham as  conexões
+  elétricas na placa. Vá na aba  "Render" à direita e desmarque "Ratsnest",
+  assim:
+
+  #+caption: esconder o ninho de fios
+  [[./pics/021.png]]
+
+  Eis alguns comandos do editor de PCB:
+
+  #+begin_example
+  m: mover a trilha
+  g: arrastar a trilha e movê-lo mantendo a conectividade
+  e: editar a trilha
+  r: rotacionar a trilha
+  f: inverter (flip) a trilha
+  del: apagar a trilha
+  esc: abortar!
+  #+end_example
+
+  Vamos separar  nossas trilhas  e colocá-las  no lado  correto da  PCB. As
+  únicas  trilhas  que ficarão  na  frente  da  PCB  serão as  trilhas  dos
+  switches. Todo o  restante ficará atrás, então certifique-se  de que tudo
+  menos os switches estão invertidos (/flipped/):
+
+  #+caption: trilhas separadas
+  [[./pics/022.png]]
+
+** Posicionamento dos Componentes
+
+   Arranje suas trilhas de switches como mostrado se não tiver feito
+   ainda. Então, edite cada uma das trilas de switch e modifique a opção
+   "Move and Place" para "Lock footprint" para que não os movamos
+   acidentalmente:
+
+   #+caption: move and place
+   [[./pics/023.png]]
+
+   Vamos colocar nossos diodos sob os switches primeiro (*este
+   posicionamento só funciona com diodos SMD*). Certifique-se que cada
+   diodo corresponda a seu switch:
+
+   #+caption: diodos
+   [[./pics/024.png]]
+
+   Vamos mover o controlador próximo dos switches, assim:
+
+   #+caption: microcontrolador próximo dos switches
+   [[./pics/025.png]]
+
+   Agora a parte mais importante do projeto da PCB: o cristal. Precisamos
+   certificar que os traços para o cristal são o mais curtos possível e
+   aproximadamente do mesmo comprimento. Uma forma fácil de saber quais
+   almofadas (/pads/) devem estar conectadas a quais almofadas é usar a
+   ferramenta "highlight net" à direita. Você usa a ferramenta e
+   simplesmente clica numa almofada, e tanto ela quanto aquelas a ela
+   conectadas são destacadas. Para este exemplo, eu coloquei o cristal
+   acima do microcontrolador e o rotacionei de 45 graus:
+
+   #+caption: posicionamento do cristal
+   [[./pics/026.png]]
+
+   Então posicione os dois capacitores de desacoplamento próximos às suas
+   respectivas almofadas:
+
+   #+caption: capacitores do cristal
+   [[./pics/027.png]]
+
+   Você não precisa se preocupar em conectar o terra com os outros terras,
+   dado que eles serão colocados num plano-base embaixo de todos os
+   componentes. Mais sobre isso em breve.
+
+   A seguir, queremos colocar os capacitores de desacoplamento para o
+   VCC. Coloque o capacitor de 0.1 uF próximo a cada VCC e AVCC e o
+   capacitor de 4.7uF próximo ao UVCC. Neste ponto eu descobri que o
+   microcontrolador estava um pouco perto demais dos switches, então eu o
+   movi um pouquinho:
+
+   #+caption: capacitores
+   [[./pics/028.png]]
+
+   Vamos colocar nosso último capacitor, o qual encaixará belamente entre
+   C5 e C7:
+
+   #+caption: último capacitor
+   [[./pics/029.png]]
+
+   Agora vamos posicionar nossos conector mini-USB e botão de reset. Eis
+   como eu coloquei o meu:
+
+   #+caption: usb e reset
+   [[./pics/030.png]]
+
+   E nossos últimos componentes, os resistores. Posicione-os de forma que
+   o traçado das rotas seja facilitado futuramente. Eis como eu fiz o meu:
+
+   #+caption: resistores
+   [[./pics/031.png]]
+
+   Note que neste ponto os tamanhos do meu reticulados estão a 0.0234375''
+   [fn::0.0234375 polegadas = 0,5953125 milímetros] em cada dimensão a fim
+   de permitir um ajuste de posicionamento mais fino.
+
+** Corte de Borda
+
+   Agora vamos traçar o contorno de nossa placa! Vá à aba "Layer" à direita
+   e clique próximo a "Edge.Cuts" para mover a seta azul até ali,
+   efetivamente selecionando-a como a camada na qual iremos realizar os
+   traçados:
+
+   #+caption: edge.cuts
+   [[./pics/032.png]]
+
+   Use as ferramentas de desenho à direita para traçar uma borda para a
+   PCB:
+
+   #+caption: ferramentas
+   [[./pics/033.png]]
+
+   Eis como cortei a minha:
+
+   #+caption: cortes
+   [[./pics/034.png]]
+
+** Plano Base
+
+   Queremos colocar um  plano base da PCB. Essencialmente, um  plano base é
+   apenas um grande naco  de cobre conectado ao terra em  ambos os lados da
+   PCB. É útil  quando temos um monte de componentes  que são conectados ao
+   terra, como na nossa PCB. Para isto, precisamos usar a ferramenta zone:
+
+   #+caption: zone
+   [[./pics/035.png]]
+
+   Certifique-se que a seta azul está de volta no F.Cu na aba Layers.
+   Então, selecione a ferramenta zone e clique nos cantos dos cortes de
+   borda. Um diálogo irá aparecer te perguntando a que rede a zona deve ser
+   associada. Selecione GND e aperte "OK":
+
+   #+caption: gnd
+   [[./pics/036.png]]
+
+   Agora, trace a borda onde você coloca as arestas de corte. Quando você
+   voltar ao ponto inicial, clique duplo. Você verá um padrão de hachura
+   vermelho em volta da sua PCB. Agora clique direito no canto da zona e
+   selecione Zones > Duplicate Zone em Layer. O mesmo diálogo irá aparecer,
+   mas dessa vez selecione B.Cu à esquerda e aperte "OK". Agora sua PCB
+   terá um padrão de hachura vermelho e outro verde ao redor:
+
+   #+caption: hachura
+   [[./pics/037.png]]
+
+   Agora clique direito e selecione cada zona, e para cada zona selecione
+   Zone > Fill Zone. Certifique-se que a opção de mostrar zonas preenchidas
+   está selecionada à esquerda:
+
+   #+caption: opções da zona
+   [[./pics/038.png]]
+
+   E sua PCB deve agora ter esta aparência:
+
+   #+caption: zonas preenchidas
+   [[./pics/039.png]]
+
+   Agora escolha a opção de esconder as zonas preenchidas. Não precisamos
+   delas enquanto realizamos o roteamento.
+
+** Roteamento (*)
+
+   Agora precisamos fazer algum roteamento.  Para isso, precisamos usar a
+   ferramenta "add tracks and vias":
+
+   #+caption: ferramenta
+   [[./pics/040.png]]
+
+   Eu também recomendo selecionar seu tamanho de reticulado para 0.25mm
+   para esta parte.
+
+   Vamos primeiro entender um pouco da terminologia:
+
+   - Um *traço* é uma conexão física de cobre, como um fio.
+   - Uma *via* é um buraco que passa por ambos os lados da PCB.  É útil
+     porque enquanto estamos roteando os traços, vamos entrar em colisões
+     onde não podemos rotear um traço ao longo do outro.  Uma via nos
+     permite saltar para o outro lado da PCB e continuar o traço do outro
+     lado.
+
+   Ao rotear, você pode apertar =v= para trocar as camadas e criar uma via.
+
+   Agora que tiramos isso do caminho, vamos estabelecer algumas
+   diretrizes. Quer dizer, uma diretriz. A saber, nada de bias entre o
+   cristal e o controlador. Vias podem potencialmente levar a uma pequena
+   quantidade de capacitância que pode realmente afetar a operação do nosso
+   cristal, portanto, este é um grande impedimento.
+
+   Agora vamos para o roteamento. A primeira coisa que se precisa rotear é
+   sempre o cristal, e a seguir os capacitores de desacoplamento próximos a
+   ele. Para nossa sorte, isto é bem simples.  Para começar, certifique-se
+   que você tenha a camada B.Cu selecionada, dado que é onde a maior parte
+   dos componentes se encontra. Eis como eu fiz a minha:
+
+   #+caption: cristal
+   [[./pics/041.png]]
+
+   Agora vamos rotear as linhas VCC.  Certifique-se que você roteou os
+   capacitores de desacoplamento para seus pinos VCC apropriados no
+   microcontrolador. E não esqueça de rotear a porta USB!
+
+   #+caption: vcc
+   [[./pics/042.png]]
+
+   Agora vamos rotear o capacitor UCap e o restante dos resistores.
+   Mantenha em mente que uma PCB bem projetada também terá um aspecto
+   esteticamente agradável. Eis como eu roteei os capacitores restantes e
+   os resistores:
+
+   #+caption: resistores
+   [[./pics/043.png]]
+
+   Note que eu modifiquei o roteamento do interruptor para acomodar os
+   traços para os resistores do USB de dados. Você também pode ligar o
+   Ratsnest na aba Render à direita para conferir quaisquer conexões que
+   tenha esquecido ou quaisquer conexões que tenha acidentalmente quebrado
+   quando estava traçando as rotas. Ignore os traços que levam a diodos e
+   interruptores. Acontece que eu esqueci de rotear todas as almofadas VCC
+   juntas e quebrei algumas conexões na base.  Eis como minha PCB se
+   aparenta após consertar todas as conexões perdidas:
+
+   #+caption: consertado
+   [[./pics/044.png]]
+
+   E agora vamos rotear os diodos e interruptores. Primeiro, roteie os
+   diodos e interruptores juntos antes de tocar no controlador:
+
+   #+caption: diodos e interruptores
+   [[./pics/045.png]]
+
+   E finalmente roteamos o controlador às linhas e colunas:
+
+   #+caption: pronto
+   [[./pics/046.png]]
+
+   Ligue suas zonas, preencha quaisquer planos perdidos, pressione =b= para
+   atualizar as zonas, et voilà:
+
+   #+caption: voila
+   [[./pics/047.png]]
+
+   Confira que todas as conexões estão feitas, usando a ferramenta DRC
+   (/design rule check/, confere regras de projeto):
+
+   #+caption: drc
+   [[./pics/048.png]]
+
+   Clique "Start DRC" e certifique-se de que não há problemas. Então clique
+   "List Unconnected" e confira redes não-conectadas. Se ambas as seções
+   estiverem vazias, então...
+
+   Sua PCB está finalizado!
+
+   Vá em "View > 3D View" e ligue "Preference > Realistic Mode". Ligue
+   todas as configurações que você quiser, configure a cor de fundo, e você
+   terá uma bela renderização de sua PCB! Você pode até mesmo selecionar a
+   ferramenta de texto e a camada B.SilkS para colocar seu nome na sua PCB:
+
+   #+caption: renderização
+   [[./pics/049.Ping]]
+
+** Furos de Montagem
+
+   Agora, com uma PCB normal, vamos precisar adicionar alguns buracos para
+   montagem. A forma que adicionaríamos tais coisas seria criando trilhas
+   customizadas com furos não banhados (NPTH - non-plated through hole) e
+   adicionando-os à sua PCB. Isto está além do escopo desse guia, mas isto
+   é fácil de encontrar buscando pelo Google!
+
+* Produção
+
+  Agora que você finalizou o projeto da sua PCB, você pode estar a fim de
+  produzi-lo, correto? Vamos te deixar a par disso:
+
+** Arquivos Gerber
+
+   Primeiramente temos que gerar os arquivos gerber, que são essencialmente
+   arquivos que informam ao fabricante da PCB o que vai em cada
+   camada. Clique no ícone "plot":
+
+   #+caption: plot
+   [[./pics/050.png]]
+
+   Especifique o diretório onde colocar os arquivos gerber e certifique-se
+   que as camadas F.Cu, B.Cu, B.Paste, F.Paste, B.SilkS, F.SilkS, B.Mask,
+   F.Mask, e Edge.Cuts estão selecionadas.  Confira a opção "Use Protel
+   filename extensions" e certifique-se que o formato é "4.6 (unit mm)":
+
+   #+caption: configurações
+   [[./pics/051.png]]
+
+   Clique em "Plot" para gerar seus arquivos.  Configure o diretório de
+   saída para o mesmo de antes, as unidades de perfuração para "Inches" e
+   seu DMFF (Drill Map File Format) para "PostScript".  Certifique-se que
+   "Mirror y axis" *não esteja selecionado*, e daí clique "Drill File":
+
+   #+caption: Arquivos de furação
+   [[./pics/052.png]]
+
+   Agora feche as caixas de diálogo.
+
+   Coloque todos ops arquivos gerados em un zip:
+
+   #+caption: zip file
+   [[./pics/053.png]]
+
+   Suba os arquivos para http://www.gerber-viewer.com/ e certifique-se que
+   todas as camadas estejam boas.  Se tudo der certo, você estará pronto
+   para enviar sua PCB para o fabricante!
+
+** Fabricante
+
+   Agora, há um monte de opções aqui.  Eu pessoalmente tenho usado a
+   [[http://www.pcbway.com/setinvite.aspx?inviteid=25678][PCBWay]] com
+   grande sucesso, mas existem montes de outros serviços baratos de
+   prototipação de PCB, como o [[https://easyeda.com/][EasyEDA]],
+   [[https://oshpark.com][OSH Park]] e
+   [[http://dirtypcbs.com/store/pcbs][DirtyPCBs]]. Também temos a
+   [AISLER][https://go.aisler.net], que providencia partes em uma solução
+   integrada, em conjunto com a PCB.
+
+   Todos estes serviços simplesmente se resumem a escolher algumas opções
+   para como suas PCBs serão manufaturadas (as configurações padrão são
+   boas em todos eles), daí subir o arquivo zip que você criou.  Se você
+   quer mudar a cor de sua PCB, então a opção que você desejará olhar é
+   "solder mask color". A cor do texto na sua PCB será "silkscreen color".
+
+   Uma vez que receber suas PCBs, você pode simplesmente usar alguma pasta
+   de solda e estação de ar quente para juntar tudo!  Se você está incerto
+   de como fazer isso, existem montes de recursos online que podem te
+   ensinar o básico de soldas SMD.
+
+** Componentes
+
+   Mas, onde você pode obter os componentes?  Eu recomendo fortemente a
+   [[http://www.digikey.com/][DigiKey]].  Eis uma lista de todos os
+   componentes usados nesse guia:
+
+   - Microcontrolador ::
+     https://www.digikey.com/product-detail/en/microchip-technology/ATMEGA32U4-AUR/ATMEGA32U4-AURCT-ND/3440960
+   - Cristal ::
+     https://www.digikey.com/product-detail/en/epson/FA-238-16.0000MB-C3/SER3686CT-ND/2403459
+   - Capacitor 22pF ::
+     https://www.digikey.com/product-detail/en/kemet/C0805C220J5GACTU/399-1113-1-ND/411388
+   - Capacitor 0.1uF ::
+     https://www.digikey.com/product-detail/en/yageo/CC0805ZRY5V9BB104/311-1361-1-ND/2103145
+   - Capacitor 1uF ::
+     https://www.digikey.com/product-detail/en/yageo/CC0805KKX7R7BB105/311-1365-1-ND/2103149
+   - Capacitorses ::
+     https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM21BR61E475KA12L/490-3335-1-ND/702876
+   - Resistores 22 Ohm ::
+     https://www.digikey.com/product-detail/en/stackpole-electronics-inc/RMCF0805JT22R0/RMCF0805JT22R0CT-ND/1942533
+   - Resistores 10k ::
+     https://www.digikey.com/product-detail/en/stackpole-electronics-inc/RMCF0805JT10K0/RMCF0805JT10K0CT-ND/1942577
+   - Diodos ::
+     https://www.digikey.com/product-detail/en/micro-commercial-co/1N4148W-TP/1N4148WTPMSCT-ND/717311
+   - Botão ::
+     https://www.digikey.com/product-detail/en/e-switch/TL3342F160QG-TR/EG2531CT-ND/379004
+   - Conector Mini USB ::
+     https://www.digikey.com/product-detail/en/hirose-electric-co-ltd/UX60SC-MB-5S8/H11589CT-ND/1949225
+
+   Outros lugares bons para se obter componentes eletrônicos incluem
+   [[http://mouser.com][Mouser]] e [[http://element14.com][element14]].
+
+   Boa sorte, e divirta-se construindo seus PCBs!
