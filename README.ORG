@@ -1,0 +1,27 @@
+# -*- mode:org; coding:utf-8-unix; fill-column:80 -*-
+
+#+options: toc:nil
+#+language: pt_BR
+
+#+author: Anderson Torres
+#+title: Ferro Velho Matemático
+
+* Introdução
+
+Eis o /Junkyard/!
+
+Neste repositório, eu pretendo reunir e catalogar uma miscelânea de documentos
+que andei juntando com o passar do tempo. Os assuntos aqui circulam,
+invariavelmente, entre Computação e Matemática.
+
+O nome é um tanto sugestivo, dado que é particularmente difícil para mim decidir
+qual a melhor maneira de organizar todas estas coisas. Mesmo algumas delas
+pertencem no fundo a ambas as áreas - como a minha tentativa de livro sobre
+Linguagens Formais e Teoria da Computação. E, dentro desta classificação
+binária, é mais difícil ainda decidir aonde bifurcar.
+
+De qualquer forma, é bom manter uma cópia desta papelada online.
+
+* Licença
+
+Enquanto eu prosseguir indeciso, todo este material seguirá a licença ISC.
