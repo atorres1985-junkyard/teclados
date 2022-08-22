@@ -1,0 +1,16 @@
+# -*- mode:org; coding:utf-8-unix; fill-column:80 -*-
+
+#+options: toc:nil
+#+language: pt_BR
+
+#+author: Anderson Torres
+#+title: Ferro Velho Matemático - Teclados Mecânicos
+
+* Introdução
+
+Este repositório servirá para manter uma cópia dos diversos arquivos
+relacionados a teclados mecânicos que eu mantenho.
+
+* Licença
+
+Enquanto eu prosseguir indeciso, todo este material seguirá a licença ISC.
